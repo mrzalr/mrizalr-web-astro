@@ -1,0 +1,64 @@
+---
+import DashboardLayout from "../../layouts/dashboard/index.astro";
+import DashboardHeader from "../../components/dashboard/header.astro";
+import Card from "../../components/dashboard/card.astro";
+---
+
+<DashboardLayout pagetitle="Experiences" activemenu="exp">
+  <DashboardHeader headertitle="Experiences" />
+  <section
+    class="p-2 pt-8 grid grid-cols-1 sm:grid-cols-[repeat(auto-fill,minmax(12rem,_1fr))] gap-2 justify-start"
+  >
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <div
+      class="fixed top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,.75)] z-30 hidden opacity-0 duration-150 items-center justify-center"
+    >
+      <div class="bg-white p-4 rounded-lg w-[90vw] max-w-[400px]">
+        <h1 class="font-bold text-sm mb-6">Add new experiences</h1>
+        <form class="flex flex-col items-end gap-2">
+          <input
+            class="px-4 py-2 outline-primary border-[1px] rounded-lg w-full"
+            type="text"
+            placeholder="Software Engineer"
+          />
+          <input
+            class="px-4 py-2 outline-primary border-[1px] rounded-lg w-full"
+            type="text"
+            placeholder="Runsystem"
+          />
+          <input
+            class="px-4 py-2 outline-primary border-[1px] rounded-lg w-full"
+            type="text"
+            placeholder="2023;Present"
+          />
+          <input
+            class="px-4 py-2 outline-primary border-[1px] rounded-lg w-full"
+            type="text"
+            placeholder="golang;mysql;docker"
+          />
+          <div class="flex gap-2 mt-6">
+            <button
+              class="px-4 py-2 text-white text-sm font-bold bg-red-500 rounded-lg"
+              >cancel</button
+            >
+            <button
+              type="submit"
+              class="px-4 py-2 text-white text-sm font-bold bg-primary rounded-lg"
+              >submit</button
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</DashboardLayout>

@@ -1,0 +1,13 @@
+---
+const { headertitle } = Astro.props;
+---
+
+<section class="px-4 sm:px-16 flex justify-between items-center">
+  <h1 class="font-bold text-lg">{headertitle}</h1>
+  <button
+    class="bg-primary opacity-80 hover:opacity-100 px-2 py-1 rounded-lg font-semibold text-white"
+  >
+    <i class="ri-add-line font-semibold text-white"></i>
+     add
+  </button>
+</section>

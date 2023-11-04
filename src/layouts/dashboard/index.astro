@@ -1,0 +1,123 @@
+---
+import "../../styles/global.css";
+
+const { pagetitle, activemenu } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/mrizalr-logo-simple.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>{pagetitle ? pagetitle : "Dashboard"} | mrizalr</title>
+  </head>
+  <body>
+    <header
+      class="w-screen bg-white fixed top-0 left-0 right-0 shadow-[0_2px_18px_rgba(0,0,0,.15)] z-10"
+    >
+      <nav class="flex justify-between py-4 px-6 items-center">
+        <a class="outline-none flex gap-2 items-end" href="/dashboard">
+          <img class="w-8 h-8" src="/mrizalr-logo-simple.png" alt="logo" />
+          <h1 class="font-bold text-xl">mrizalr</h1>
+        </a>
+        <ul class="hidden sm:flex gap-12 text-md flex-1 justify-end">
+          <li>
+            <a
+              class={`hover:underline font-medium ${
+                activemenu === "main" ? "text-primary" : ""
+              }`}
+              href="">Main</a
+            >
+          </li>
+          <li>
+            <a
+              class={`hover:underline font-medium ${
+                activemenu === "blogs" ? "text-primary" : ""
+              }`}
+              href="">Blogs</a
+            >
+          </li>
+          <li>
+            <a
+              class={`hover:underline font-medium ${
+                activemenu === "exp" ? "text-primary" : ""
+              }`}
+              href="">Experiences</a
+            >
+          </li>
+          <li>
+            <a
+              class={`hover:underline font-medium ${
+                activemenu === "porto" ? "text-primary" : ""
+              }`}
+              href="">Portofolios</a
+            >
+          </li>
+        </ul>
+        <button id="menu-btn" class="z-50">
+          <i class="ri-menu-line outline-none sm:hidden"></i>
+        </button>
+      </nav>
+      <div
+        id="slider-menu"
+        class="fixed sm:hidden top-0 left-full -right-full bottom-0 bg-white z-30 flex items-center justify-center duration-150"
+      >
+        <ul class="flex flex-col gap-12 text-lg">
+          <li>
+            <a
+              class={`font-bold ${activemenu === "main" ? "text-primary" : ""}`}
+              href="">Main</a
+            >
+          </li>
+          <li>
+            <a
+              class={`font-bold ${
+                activemenu === "blogs" ? "text-primary" : ""
+              }`}
+              href="">Blogs</a
+            >
+          </li>
+          <li>
+            <a
+              class={`font-bold ${activemenu === "exp" ? "text-primary" : ""}`}
+              href="">Experiences</a
+            >
+          </li>
+          <li>
+            <a
+              class={`font-bold ${
+                activemenu === "porto" ? "text-primary" : ""
+              }`}
+              href="">Portofolios</a
+            >
+          </li>
+        </ul>
+      </div>
+    </header>
+    <div class="mt-24">
+      <slot />
+    </div>
+
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const icon = menuBtn?.querySelector("i");
+      const sliderMenu = document.getElementById("slider-menu");
+
+      menuBtn?.addEventListener("click", () => {
+        icon?.classList.toggle("ri-close-line");
+        icon?.classList.toggle("ri-menu-line");
+
+        sliderMenu?.classList.toggle("left-full");
+        sliderMenu?.classList.toggle("left-0");
+
+        sliderMenu?.classList.toggle("-right-full");
+        sliderMenu?.classList.toggle("right-0");
+      });
+    </script>
+  </body>
+</html>
