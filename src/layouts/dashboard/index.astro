@@ -20,7 +20,7 @@ const { pagetitle, activemenu } = Astro.props;
     <header
       class="w-screen bg-white fixed top-0 left-0 right-0 shadow-[0_2px_18px_rgba(0,0,0,.15)] z-10"
     >
-      <nav class="flex justify-between py-4 px-6 items-center">
+      <nav class="flex justify-between py-4 px-6 items-center gap-12">
         <a class="outline-none flex gap-2 items-end" href="/dashboard">
           <img class="w-8 h-8" src="/mrizalr-logo-simple.png" alt="logo" />
           <h1 class="font-bold text-xl">mrizalr</h1>
@@ -31,7 +31,7 @@ const { pagetitle, activemenu } = Astro.props;
               class={`hover:underline font-medium ${
                 activemenu === "main" ? "text-primary" : ""
               }`}
-              href="">Main</a
+              href="/dashboard">Main</a
             >
           </li>
           <li>
@@ -39,7 +39,7 @@ const { pagetitle, activemenu } = Astro.props;
               class={`hover:underline font-medium ${
                 activemenu === "blogs" ? "text-primary" : ""
               }`}
-              href="">Blogs</a
+              href="/dashboard/blogs">Blogs</a
             >
           </li>
           <li>
@@ -47,7 +47,7 @@ const { pagetitle, activemenu } = Astro.props;
               class={`hover:underline font-medium ${
                 activemenu === "exp" ? "text-primary" : ""
               }`}
-              href="">Experiences</a
+              href="/dashboard/experiences">Experiences</a
             >
           </li>
           <li>
@@ -55,23 +55,27 @@ const { pagetitle, activemenu } = Astro.props;
               class={`hover:underline font-medium ${
                 activemenu === "porto" ? "text-primary" : ""
               }`}
-              href="">Portofolios</a
+              href="/dashboard/portofolios">Portofolios</a
             >
           </li>
         </ul>
+        <button
+          class="bg-red-500 px-2 py-1 rounded-lg text-white font-semibold hidden sm:block"
+          >Logout</button
+        >
         <button id="menu-btn" class="z-50">
           <i class="ri-menu-line outline-none sm:hidden"></i>
         </button>
       </nav>
       <div
         id="slider-menu"
-        class="fixed sm:hidden top-0 left-full -right-full bottom-0 bg-white z-30 flex items-center justify-center duration-150"
+        class="fixed sm:hidden top-0 left-full -right-full bottom-0 bg-white z-30 flex flex-col gap-8 items-center justify-center duration-150"
       >
         <ul class="flex flex-col gap-12 text-lg">
           <li>
             <a
               class={`font-bold ${activemenu === "main" ? "text-primary" : ""}`}
-              href="">Main</a
+              href="/dashboard/">Main</a
             >
           </li>
           <li>
@@ -79,13 +83,13 @@ const { pagetitle, activemenu } = Astro.props;
               class={`font-bold ${
                 activemenu === "blogs" ? "text-primary" : ""
               }`}
-              href="">Blogs</a
+              href="/dashboard/blogs">Blogs</a
             >
           </li>
           <li>
             <a
               class={`font-bold ${activemenu === "exp" ? "text-primary" : ""}`}
-              href="">Experiences</a
+              href="/dashboard/experiences">Experiences</a
             >
           </li>
           <li>
@@ -93,8 +97,11 @@ const { pagetitle, activemenu } = Astro.props;
               class={`font-bold ${
                 activemenu === "porto" ? "text-primary" : ""
               }`}
-              href="">Portofolios</a
+              href="/dashboard/portofolios">Portofolios</a
             >
+          </li>
+          <li>
+            <a class="font-bold text-red-500">Logout</a>
           </li>
         </ul>
       </div>
